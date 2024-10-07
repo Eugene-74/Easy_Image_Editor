@@ -36,7 +36,7 @@ jobs:
       run: |
         git clone https://github.com/Exiv2/exiv2.git
         cd exiv2
-        cmake -DBUILD_SHARED_LIBS=OFF -G "Unix Makefiles" .
+        cmake -DBUILD_SHARED_LIBS=ON -G "Unix Makefiles" .
         make -j$(nproc)
         sudo make install
         cd ..
