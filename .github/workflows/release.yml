@@ -31,7 +31,7 @@ jobs:
         sudo apt-get install -y g++ pkg-config libopencv-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libexiv2-dev
     - name: Build the main project
       run: |
-        g++ -g main.cpp ressources/qrc_resources.cpp \
+        g++ -g main.cpp ressources/qrc_ressources.cpp \
         -fPIC -L./lib -lfolders -o main-linux `pkg-config --cflags --libs Qt5Widgets Qt5Gui Qt5Core  opencv4` -lexiv2
     - name: Find .so files and zip the compiled program
       run: |
