@@ -32,14 +32,14 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y g++ pkg-config libopencv-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
 
-    - name: Install inih
-      run: |
-        git clone https://github.com/benhoyt/inih.git
-        cd inih
-        g++ -c inih/*.c -o libinih.a
-        sudo cp libinih.a /usr/local/lib/
-        sudo cp *.h /usr/local/include/
-        cd ..
+    # - name: Install inih
+    #   run: |
+    #     git clone https://github.com/benhoyt/inih.git
+    #     cd inih
+    #     g++ -c inih/*.c -o libinih.a
+    #     sudo cp libinih.a /usr/local/lib/
+    #     sudo cp *.h /usr/local/include/
+    #     cd ..
 
     - name: Install latest Exiv2
       run: |
