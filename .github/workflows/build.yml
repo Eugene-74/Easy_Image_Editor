@@ -9,11 +9,11 @@ on:
   push:
     branches:
       - main
-      - test-branch
+
   pull_request:
     branches:
       - main
-      - test-branch
+
 
 permissions:
   contents: write
