@@ -1,4 +1,4 @@
-name: test Build C++ Project
+name: Build C++ Project
 
 env:
   VERSION: v1.0.1
@@ -32,11 +32,21 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y g++ pkg-config libopencv-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
 
+    - name: Install inih
+      run: |
+        git clone https://github.com/benhoyt/inih.git
+        cd inih
+        cmake -Bbuild .
+        cmake --build build
+        sudo cp build/libinih.a /usr/local/lib/
+        sudo cp *.h /usr/local/include/
+        cd ..
+
     - name: Install latest Exiv2
       run: |
         git clone https://github.com/Exiv2/exiv2.git
         cd exiv2
-        cmake -DBUILD_SHARED_LIBS=ON -G "Unix Makefiles" .
+        cmake -DBUILD_SHARED_LIBS=OFF -G "Unix Makefiles" .
         make -j$(nproc)
         sudo make install
         cd ..
@@ -82,7 +92,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload Linux executable
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name:
+    - name: Upload Linux
