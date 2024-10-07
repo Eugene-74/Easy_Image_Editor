@@ -31,6 +31,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y g++ pkg-config libopencv-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+        sudo apt-get install libinih-dev
+
 
     # - name: Install inih
     #   run: |
