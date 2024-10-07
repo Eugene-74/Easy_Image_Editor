@@ -36,9 +36,8 @@ jobs:
       run: |
         git clone https://github.com/benhoyt/inih.git
         cd inih
-        cmake -Bbuild .
-        cmake --build build
-        sudo cp build/libinih.a /usr/local/lib/
+        g++ -c inih/*.c -o libinih.a
+        sudo cp libinih.a /usr/local/lib/
         sudo cp *.h /usr/local/include/
         cd ..
 
