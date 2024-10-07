@@ -30,8 +30,10 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y g++ pkg-config libopencv-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libexiv2-dev zlib1g-dev
+        sudo apt-get install -y g++ pkg-config libopencv-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
         sudo apt-get install libinih-dev
+        sudo apt install exiv2
+
 
 
     # - name: Install inih
@@ -43,14 +45,14 @@ jobs:
     #     sudo cp *.h /usr/local/include/
     #     cd ..
 
-    - name: Install latest Exiv2
-      run: |
-        git clone https://github.com/Exiv2/exiv2.git
-        cd exiv2
-        cmake -DBUILD_SHARED_LIBS=OFF -G "Unix Makefiles" .
-        make -j$(nproc)
-        sudo make install
-        cd ..
+    # - name: Install latest Exiv2
+    #   run: |
+    #     git clone https://github.com/Exiv2/exiv2.git
+    #     cd exiv2
+    #     cmake -DBUILD_SHARED_LIBS=OFF -G "Unix Makefiles" .
+    #     make -j$(nproc)
+    #     sudo make install
+    #     cd ..
 
     - name: Build the main project
       run: |
